@@ -22,4 +22,4 @@ Route::get('/', function(){
 	return Redirect::route('home');
 });
 
-Route::get('/home', array('as'=>'home', 'uses'=>'HomeController@index'));
+Route::get('/home', array('as'=>'home', 'uses'=>'HomeController@home'));
