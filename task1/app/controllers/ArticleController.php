@@ -22,8 +22,11 @@ class ArticleController extends \BaseController
 	 */
 	public function show($id)
 	{
-
-		return View::make('article', array('id' => $id));
+		if($id > 0 && $id < 11)
+		{
+			return View::make('article', array('id' => $id));
+		}
+		return View::make('404');
 	}
 
 
