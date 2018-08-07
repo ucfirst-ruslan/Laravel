@@ -34,10 +34,12 @@
 	</style>
 </head>
 <body>
+<h1> 
 
-<h1> Test Form </h1>
+{{$title or "My test page"}}
+</h1>
 
-<form method="POST" action="<?php echo URL::route('pform'); ?>">
+<form method="POST" action="{{ URL::route('pform') }}">
 <input type="text" name="name">
 <button type="submit">go</button>
 </form>

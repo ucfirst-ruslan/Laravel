@@ -8,7 +8,7 @@ class TestController extends BaseController {
 	
 	
 	public function getForm(){
-		return View::make('form');
+		return View::make('form', array('title'=>'Hello Form', 'element' =>array(1,2,3,4)));
 	}
 	
 	

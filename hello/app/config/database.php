@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => 'testdb',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -46,9 +46,9 @@ return array(
 
 	'connections' => array(
 
-		'sqlite' => array(
+		'testdb' => array(
 			'driver'   => 'sqlite',
-			'database' => __DIR__.'/../database/production.sqlite',
+			'database' => __DIR__.'/../database/chinook.sqlite',
 			'prefix'   => '',
 		),
 
