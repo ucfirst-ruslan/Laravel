@@ -1,0 +1,14 @@
+Task 2
+1. Создать с помощью composer новый проект Laravel под названием task2.
+2. Загрузить и подключить базу данных для примеров Chinook:
+https://github.com/lerocha/chinook-database/tree/master/ChinookDatabase/DataSources
+(файл Chinook_Sqlite.sqlite)
+https://blog.xojo.com/2016/04/13/the-chinook-sample-database/
+(схема базы для наглядности)
+
+3. Создать модели Eloquent для таблиц Artist, Album, Track и Genre, установить связи между ними.
+4. Добавить следующие страницы:
+а) "/" - выводит список Исполнителей (Artist) с сылками;
+б) "/artist/{id}" - выводит список Альбомов (Album) Исполнителя с указанным ID;
+в) "/album/{id}" - выводит список Треков (Track) в выбраном альбоме (+ название исполнителя).
+г) "/track/{id}" - инфо по указанному треку (+ название исполнителя и альбома).
