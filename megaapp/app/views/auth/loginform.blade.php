@@ -1,14 +1,11 @@
 @extends('layout.main')
 @section('content')
-
 @if(isset($error))
-	<p>{{$error}}</p>
+<p>{{$error}}</p>
 @endif
-
-<form method="post" action="">
+<form method="POST" action="">
 <input type="text" name="email">
-<input type="password" name"password">
-<button type="submit">Login</button>
+<input type="password" name="password">
+<button type="submit">Log In</button>
 </form>
-
 @stop

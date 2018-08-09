@@ -9,7 +9,7 @@
 @section('content')
     <div class="alert alert-secondary" role="alert">
         @foreach ($tracks as $track)
-            <a href=/track/{{$track->TrackId}}>{{$track->Name}}</a><br>
+            <a href={{URL::to('/track/')}}/{{$track->TrackId}}>{{$track->Name}}</a><br>
         @endforeach
     </div>
 @stop

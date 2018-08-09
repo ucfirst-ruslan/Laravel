@@ -1,25 +1,19 @@
 <html>
 <head>
-	<title>Test Page</title>
 </head>
 <body>
-
 <div class="header">
-
-@if(Auth::check)
-	Hello, {{Auth::user()->nickname}}
-<a href="{{URL::action('authController@getLogout')}}">LogOut</a>
+@if(Auth::check())
+Hello, {{Auth::user()->nickname}}
+<a href="{{URL::action('AuthController@getLogout')}}">Log Out</a>
 @else
-<a href="{{URL::action('authController@getLoginForm')}}">Login</a>
-<a href="{{URL::action('authController@getRegisterForm')}}">Register</a>
+<a href="{{URL::action('AuthController@getLoginForm')}}">Log In</a>
+<a href="{{URL::action('AuthController@getRegisterForm')}}">Register</a>
 @endif
-
 </div>
-
-
 <div class="content">
-@yeild('content')
+@yield('content')
 </div>
-
 </body>
 </html>
+

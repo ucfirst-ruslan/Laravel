@@ -13,8 +13,8 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return Redirect::action('ForumController@getTopicsList');
 });
 
-
 Route::controller('/auth', 'AuthController');
+Route::controller('/forum', 'ForumController');
