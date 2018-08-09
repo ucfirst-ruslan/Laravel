@@ -10,7 +10,7 @@ class ArtistController  extends BaseController
 
 	public function show($id)
 	{
-		$albums = DB::table('Album')->where('ArtistId', $id)->orderBy('Title')->get();
+		$albums = Album::where('ArtistId', $id)->orderBy('Title')->get();
 		$artist = Artist::find($id);
 
 		return View::make('artistAlbum', array('albums' => $albums, 'artist'=>$artist));
