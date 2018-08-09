@@ -6,8 +6,8 @@ class Track extends Eloquent
 	protected $table = 'Track';
 	protected $primaryKey = 'TrackId';
 
-	public function albums()
+	public function tracks()
 	{
-		return $this->belongsTo('Album', 'ArtistId', 'ArtistId');
+		return $this->hasManyThrough('Album', 'Artist', 'ArtistId', 'AlbumId');
 	}
 }

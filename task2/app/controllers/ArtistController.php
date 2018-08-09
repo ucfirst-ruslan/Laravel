@@ -1,13 +1,18 @@
 <?php
-/**
- * User: ruslan
- * Date: 8.08.18
- * Time: 14:23
- */
-
-use App\Model\Album;
 
 class ArtistController  extends BaseController
 {
+	public function index()
+	{
+		$artists = Artist::all();
+		return View::make('artists', array('artists' => $artists));
+	}
 
+	public function show($id)
+	{
+		$albums = DB::table('Album')->where('ArtistId', $id)->orderBy('Title')->get();
+		$artist = Artist::find($id);
+
+		return View::make('artistAlbum', array('albums' => $albums, 'artist'=>$artist));
+	}
 }
