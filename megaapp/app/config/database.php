@@ -55,9 +55,9 @@ return array(
 		'megadb' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'user30',
-			'username'  => 'user30',
-			'password'  => 'user30',
+			'database'  => 'user10',
+			'username'  => 'user10',
+			'password'  => 'user10',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => 'megaapp_',
