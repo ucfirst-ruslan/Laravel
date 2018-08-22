@@ -48,11 +48,14 @@ class AuthController extends BaseController {
 	public function postLoginForm()
 	{
 		$email = Input::get('email');
-                $pass = Input::get('password');
-		if(Auth::attempt(array('email' => $email, 'password' => $pass))) {
-			return Redirect::to('/');
-	}
-	return View::make('auth.loginform', array('error' => 'Invalid login/pass'));
+        $pass = Input::get('password');
+		//dd ($pass);
+		if(Auth::attempt(array('email' => $email, 'password' => $pass))) 
+		{
+			return Redirect::intended();
+		}
+		
+		return View::make('auth.loginform', array('error' => 'Invalid login/pass'));
 
 	}
 

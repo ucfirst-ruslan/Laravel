@@ -1,5 +1,5 @@
 function send(rate, id) {
-	let reqUrl = 'http://mega.loc/forum/like/'+id;
+	let reqUrl = 'http://192.168.0.15/~user10/megaapp/forum/like/'+id;
 
 	fetch(reqUrl,
         {

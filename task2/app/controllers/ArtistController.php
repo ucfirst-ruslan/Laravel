@@ -4,7 +4,7 @@ class ArtistController  extends BaseController
 {
 	public function index()
 	{
-		$artists = Artist::all();
+		$artists = Artist::paginate(20);
 		return View::make('artists', array('artists' => $artists));
 	}
 

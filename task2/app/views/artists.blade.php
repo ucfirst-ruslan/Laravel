@@ -10,4 +10,7 @@
             <a href={{URL::to('/artist/')}}/{{$artist->ArtistId}}>{{$artist->Name}}</a><br>
         @endforeach
     </div>
+	<br />
+	{{$artists->links()}}
+	
 @stop
