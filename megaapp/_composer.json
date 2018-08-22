@@ -15,7 +15,11 @@
 			"app/database/seeds",
 			"app/tests/TestCase.php"
 		],
+<<<<<<< HEAD
 		"psr-0": {
+=======
+		"psr-0":{
+>>>>>>> d3c72631092b7d2180d211693a4c9e44f90f96aa
 			"MegaApp": "app"
 		}
 	},

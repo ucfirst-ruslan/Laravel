@@ -1,20 +1,52 @@
 @extends('layout.main')
 
+
+@section('title')
+    Topics List
+@stop
 @section('content')
-<h1>Forums List</h1>
-@foreach($topics as $topic)
-<div>
-<p class="topicstarter"><b>{{$topic->user->nickname}}</b> <i>{{$topic->updated_at}}</i></p>
-<p><a href="{{URL::action('ForumController@getTopic', $topic->id)}}">{{$topic->title}}</a></p>
-<p>Posts: {{$topic->posts_count}} Visits: {{$topic->visits}}</p>
-</div>
-@endforeach
-@if(Auth::check())
-<h2>Start new topic</h2>
-<form method="POST" action="{{URL::action('ForumController@postNewTopic')}}">
-<input type="text" name="title">
-{{$errors->first('title') }}
-<button type="submit">Start</button>
-</form>
-@endif
+
+    <div class="list">
+        <div class="container">
+
+            @foreach($topics as $topic)
+                <article class="flex-group">
+                    <div class="list-group">
+                        <div class="data-topic">
+                            <div class="nick">{{$topic->user->nickname}}</div>
+                            <div class="date-list">{{$topic->updated_at}}</div>
+
+                        </div>
+
+                        <div class="topic">
+                            <a href="{{URL::action('ForumController@getTopic', $topic->id)}}">{{$topic->title}}</a>
+                        </div>
+                    </div>
+
+                    <div class="info-post">
+                        <div>Posts: {{$topic->posts_count}}</div>
+                        <div>
+                            Visits: {{$topic->visits}}</div>
+                    </div>
+                </article>
+            @endforeach
+
+
+            @if(Auth::check())
+                <div class="form">
+                    <form method="POST"
+                          action="{{URL::action('ForumController@postNewTopic')}}">
+                        <label for="input-list">Title Topic</label>
+                        <input id="input-list" type="text" name="title">
+                        <div class="error">{{$errors->first('title') }}</div>
+                        <button type="submit">Add Topic</button>
+                    </form>
+                </div>
+            @endif
+
+
+        </div>
+    </div>
+
+
 @stop
