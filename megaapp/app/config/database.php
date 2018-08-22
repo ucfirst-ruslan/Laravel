@@ -54,10 +54,10 @@ return array(
 
 		'megadb' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'user10',
-			'username'  => 'user10',
-			'password'  => 'user10',
+			'host'      => '127.0.0.1',
+			'database'  => 'megaapp',
+			'username'  => 'root',
+			'password'  => 'root',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => 'megaapp_',

@@ -1,12 +1,21 @@
 @extends('layout.main')
+@section('title')
+    Register User
+@stop
 @section('content')
-<form method="POST" action="">
-<input type="text" name="nickname">
-{{$errors->first('nickname') }}
-<input type="text" name="email">
-{{$errors->first('email') }}
-<input type="password" name="password">
-{{$errors->first('password') }}
-<button type="submit">Register Me</button>
-</form>
+    <div class="container">
+        <div class="form">
+            <form method="POST" action="">
+                <div class="error"> {{$errors->first('nickname') }}</div>
+                <input type="text" name="nickname" placeholder="Nickname">
+                <div class="error">{{$errors->first('email') }}</div>
+                <input type="text" name="email" placeholder="E-mail">
+                <div class="error">{{$errors->first('password') }}</div>
+                <input type="password" name="password" placeholder="Password">
+
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
 @stop

@@ -11,4 +11,5 @@ class Topic extends Eloquent {
 	{
 		return $this->belongsTo('User');
 	}
+
 }

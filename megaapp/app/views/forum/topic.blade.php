@@ -1,25 +1,40 @@
 @extends('layout.main')
+@section('title')
+    {{$topic->title}}
+@stop
 
 @section('content')
-<a href="{{URL::action('ForumController@getTopicsList')}}">Back to list</a>
-<h1>{{$topic->title}}</h1>
-@foreach($posts as $post)
-<div class="post">
-	<div class="post-head">
-		<p>
-			<span class="author">{{$post->user->nickname}}</span>
-			<span class="ts">{{$post->created_at}}</span>
-		</p>
-	</div>
-	<div class="post-body">
-		<p>{{$post->message}}</p>
-	</div>
-</div>
-@endforeach
-{{$posts->links()}}
-<h2>New Post</h2>
-<form method="POST" action="{{URL::action('ForumController@postNewPost', $topic->id)}}">
-<textarea name="message"></textarea>
-<button type="submit">Send</button>
-</form>
+    <div class="list">
+        <div class="container">
+        @foreach($posts as $post)
+        <article class="flex-group" >
+            <div class="nickname">{{$post->user->nickname}}</div>
+
+            <div class="post-group">
+                <div class="data-post">
+                    <div class="date">{{$post->created_at->format('H:i d.m.y')}}</div>
+                    <div class="like">
+                        <span onclick="up({{$post->id}})" class="up">+</span>
+                        <span id="likes{{$post->id}}">{{$post->like}}</span>
+                        <span onclick="down({{$post->id}})" class="down">-</span></div>
+                    </div>
+                <div class="post">{{$post->message}}</div>
+            </div>
+        </article>
+    @endforeach
+
+
+    {{$posts->links()}}
+
+    <div class="form">
+        <form method="POST"
+              action="{{URL::action('ForumController@postNewPost', $topic->id)}}">
+            <label for="text-post">Add Post</label>
+            <textarea id="text-post" name="message"></textarea>
+            <div class="error">{{$errors->first('message') }}</div>
+            <button type="submit">Add Post</button>
+        </form>
+    </div>
+    </div>
+    </div>
 @stop

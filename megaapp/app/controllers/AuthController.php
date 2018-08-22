@@ -1,6 +1,16 @@
 <?php
 
+use \MegaApp\Repository\UserRepository\UserRepositoryInterface;
+
 class AuthController extends BaseController {
+
+	protected $userRepo;
+	public function __construct(UserRepositoryInterface $repo)
+	{
+
+		$this->userRepo = $repo;
+
+	}
 
 	public function getRegisterForm()
 	{
@@ -31,11 +41,7 @@ class AuthController extends BaseController {
 		{
 			return Redirect::action('AuthController@getRegisterForm')->withErrors($validator);
 		}
-		$user = new User;
-		$user->nickname = $nick;
-		$user->email = $email;
-		$user->password = Hash::make($pass);
-		$user->save();
+		$user = $this->userRepo->postRegisterForm($nick, $email, $pass);
 		return Redirect::action('AuthController@getLoginForm');
 	}
 
