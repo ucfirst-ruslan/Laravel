@@ -1,4 +1,4 @@
-function send(rate, id) {
+/* function send(rate, id) {
 	let reqUrl = 'http://192.168.0.15/~user10/megaapp/forum/like/'+id;
 
 	fetch(reqUrl,
@@ -20,6 +20,20 @@ function send(rate, id) {
         changeHtml(data, id);
 
 		});
+} */
+
+function send(rate, id){
+	axios.post('http://192.168.0.15/~user10/megaapp/forum/like/'+id, {
+			id: id,
+			rate: rate
+		})
+		.then(function (response) {
+			console.log(response);
+			changeHtml(response.data, id);
+		})
+		.catch(function (error) {
+			console.log(error);
+	});
 }
 
 function up(id) {

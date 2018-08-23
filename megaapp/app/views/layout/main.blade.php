@@ -5,6 +5,7 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/reset.css">
     <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/styles.css">
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{URL::to('/')}}/js/main.js"></script>
 </head>
 <body>
